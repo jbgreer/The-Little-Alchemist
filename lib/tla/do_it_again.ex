@@ -1,5 +1,4 @@
 defmodule TLA.DoItAgain do
-
   def cons(a, l) do
     [a | l]
   end
@@ -18,5 +17,4 @@ defmodule TLA.DoItAgain do
       [h | t] -> h == a or member?(a, t)
     end
   end
-
 end

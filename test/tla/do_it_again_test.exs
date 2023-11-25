@@ -14,23 +14,22 @@ defmodule TLA.DoItAgainTest do
   end
 
   test "lat?([ [:foo] ]) == false" do
-    assert lat?([ [:foo] ]) == false
+    assert lat?([[:foo]]) == false
   end
 
   test "member?(:foo, [ :foo ] ) == true" do
-    assert member?(:foo, [ :foo ] ) == true
+    assert member?(:foo, [:foo]) == true
   end
 
   test "member?(:foo, [ :bar, :foo ] ) == true" do
-    assert member?(:foo, [ :bar, :foo ] ) == true
+    assert member?(:foo, [:bar, :foo]) == true
   end
 
   test "member?(:foo, [ ] ) == false" do
-    assert member?(:foo, [ ] ) == false
+    assert member?(:foo, []) == false
   end
 
   test "member?(:foo, [ :bar ] ) == false" do
-    assert member?(:foo, [ :bar ] ) == false
+    assert member?(:foo, [:bar]) == false
   end
-
 end

@@ -13,7 +13,6 @@ defmodule TLA.ToysTest do
     assert hd([[:a, :b, :c], :x, :y, :z]) == [:a, :b, :c]
   end
 
-
   test "hd([]) is undefined" do
     try do
       hd([])
@@ -24,11 +23,11 @@ defmodule TLA.ToysTest do
   end
 
   test "hd([ [[hotdog:]], [and:], [pickle:], relish:] = [[hotdog:]] )" do
-    assert hd([ [ [ :hotdog ] ], [ :and ], [ :pickle ], :relish ]) == [[ :hotdog ]]
+    assert hd([[[:hotdog]], [:and], [:pickle], :relish]) == [[:hotdog]]
   end
 
   test "hd(hd([ [[hotdog:]], [and:], [pickle:], relish:] )) = [hotdog:] )" do
-    assert hd( hd([ [ [ :hotdog ] ], [ :and ], [ :pickle ], :relish ]) ) == [ :hotdog ]
+    assert hd(hd([[[:hotdog]], [:and], [:pickle], :relish])) == [:hotdog]
   end
 
   # Law of cdr tests
@@ -46,16 +45,15 @@ defmodule TLA.ToysTest do
   end
 
   test "hd( tl( [ [:b], [:x, :y], [ [:c]] ] == [x, y]" do
-    assert hd( tl( [ [:b], [:x, :y], [ [:c]] ] ) ) == [:x, :y]
+    assert hd(tl([[:b], [:x, :y], [[:c]]])) == [:x, :y]
   end
 
   # Law of cons tests
   test "cons(:peanut, []) == [:peanut]" do
-    assert cons(:peanut, [] ) == [:peanut]
+    assert cons(:peanut, []) == [:peanut]
   end
 
   test "cons(:peanut, [:butter, :and, :jelly]) == [:peanut, :butter, :and, :jelly]" do
     assert cons(:peanut, [:butter, :and, :jelly]) == [:peanut, :butter, :and, :jelly]
   end
-
 end
