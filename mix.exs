@@ -39,7 +39,7 @@ defmodule TheLittleAlchemist.MixProject do
       {:dialyxir, "~> 1.4.1", only: [:dev, :test], runtime: false},
       {:excoveralls, "~> 0.17.1", only: [:dev, :test], runtime: false},
       {:ex_doc, "~> 0.27", only: [:dev], runtime: false},
-      {:doctor, "~> 0.21.0", only: [:dev], runtime: false},
+      {:doctor, "~> 0.21.0", only: [:dev], runtime: false}
     ]
   end
 end
