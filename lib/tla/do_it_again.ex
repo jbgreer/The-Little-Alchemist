@@ -12,4 +12,11 @@ defmodule TLA.DoItAgain do
     end
   end
 
+  def member?(a, lat) do
+    case lat do
+      [] -> false
+      [h | t] -> h == a or member?(a, t)
+    end
+  end
+
 end
