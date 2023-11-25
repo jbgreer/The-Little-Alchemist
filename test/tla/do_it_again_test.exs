@@ -9,12 +9,12 @@ defmodule TLA.DoItAgainTest do
     assert lat?([]) == true
   end
 
-  test "lat?([:foo, :bar]) == true" do
-    assert lat?([:foo, :bar]) == true
-  end
-
   test "lat?([ [:foo] ]) == false" do
     assert lat?([[:foo]]) == false
+  end
+
+  test "lat?([:foo, :bar]) == true" do
+    assert lat?([:foo, :bar]) == true
   end
 
   test "member?(:foo, [ :foo ] ) == true" do
