@@ -1,8 +1,4 @@
 defmodule TLA.DoItAgain do
-  def cons(a, l) do
-    [a | l]
-  end
-
   def lat?(lat) do
     case lat do
       [] -> true
