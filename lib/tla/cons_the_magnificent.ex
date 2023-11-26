@@ -24,4 +24,15 @@ defmodule TLA.ConsTheMagnificent do
       [h | l] -> cons(hd(h), firsts(l))
     end
   end
+
+  @doc """
+  Given a list of atoms 'lat', insert an atom 'new' to the right of the first instance of atom 'old'
+  """
+  def insertR(new, old, lat) do
+    case lat do
+      [] -> []
+      [ h | t ] when h == old -> cons(h, cons(new, t))
+      [ h | t ] -> cons(h, insertR(new, old, t))
+    end
+  end
 end
