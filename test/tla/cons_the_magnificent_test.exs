@@ -1,7 +1,7 @@
 defmodule TLA.ConsTheMagnificentTest do
   use ExUnit.Case
 
-  import TLA.ConsTheMagnificent, only: [rember: 2, firsts: 1]
+  import TLA.ConsTheMagnificent, only: [rember: 2, firsts: 1, insertR: 3]
 
   test "rember(:foo, []) == []" do
     assert rember(:foo, []) == []
@@ -35,4 +35,22 @@ defmodule TLA.ConsTheMagnificentTest do
   test "firsts( [ [ [:apple], :peach], [:plum, :pear] ] ) == [ [:apple], :plum]" do
     assert firsts([[[:apple], :peach], [:plum, :pear]]) == [[:apple], :plum]
   end
+
+  test "insertR( :foo, :bar, [ ]) == []" do
+    assert insertR( :foo, :bar, []) == []
+  end
+
+  test "insertR( :foo, :bar, [:bar]) == [:bar, :foo]" do
+    assert insertR( :foo, :bar, [:bar]) == [:bar, :foo]
+  end
+
+  test "insertR( :foo, :bar, [:bar, :quux]) == [:bar, :foo, :quux]" do
+    assert insertR( :foo, :bar, [:bar, :quux]) == [:bar, :foo, :quux]
+  end
+
+  test "insertR( :topping, :fudge, [ :ice, :cream, :with, :fudge, :for, :dessert]) == [:ice, :cream, :with, :fudge, :topping, :for, :dessert]" do
+    assert insertR( :topping, :fudge, [ :ice, :cream, :with, :fudge, :for, :dessert]) ==
+      [:ice, :cream, :with, :fudge, :topping, :for, :dessert]
+  end
+
 end
