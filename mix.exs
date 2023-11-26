@@ -37,8 +37,8 @@ defmodule TheLittleAlchemist.MixProject do
     [
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.4.1", only: [:dev, :test], runtime: false},
-      {:excoveralls, "~> 0.17.1", only: [:dev, :test], runtime: false},
-      {:ex_doc, "~> 0.27", only: [:dev], runtime: false},
+      {:excoveralls, "~> 0.18", only: [:dev, :test], runtime: false},
+      {:ex_doc, "~> 0.30", only: [:dev], runtime: false},
       {:doctor, "~> 0.21.0", only: [:dev], runtime: false}
     ]
   end

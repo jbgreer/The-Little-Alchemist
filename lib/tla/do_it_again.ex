@@ -1,4 +1,11 @@
 defmodule TLA.DoItAgain do
+  @moduledoc """
+  Based on The Little Schemer, 4th Edition, Ch. 2 Do IT, Dot It Again, and Again, and Again...
+  """
+
+  @doc """
+  Returns true is 'lat' is a (possibly empty) list of atoms
+  """
   def lat?(lat) do
     case lat do
       [] -> true
@@ -7,6 +14,9 @@ defmodule TLA.DoItAgain do
     end
   end
 
+  @doc """
+  Returns true if atom 'a' is in the list of atoms 'lat'
+  """
   def member?(a, lat) do
     case lat do
       [] -> false
