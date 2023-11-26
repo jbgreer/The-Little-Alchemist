@@ -9,3 +9,5 @@ This isn't complete, but I'm walking through some of the questions and attemptin
 No promises that my Elixir is idiomatic.
 
 No promises that my solutions are correct.
+
+Just for fun.
