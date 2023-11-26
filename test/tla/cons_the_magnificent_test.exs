@@ -1,7 +1,7 @@
 defmodule TLA.ConsTheMagnificentTest do
   use ExUnit.Case
 
-  import TLA.ConsTheMagnificent, only: [rember: 2, firsts: 1, insertR: 3]
+  import TLA.ConsTheMagnificent, only: [rember: 2, firsts: 1, insertR: 3, insertL: 3]
 
   test "rember(:foo, []) == []" do
     assert rember(:foo, []) == []
@@ -51,5 +51,17 @@ defmodule TLA.ConsTheMagnificentTest do
   test "insertR( :topping, :fudge, [ :ice, :cream, :with, :fudge, :for, :dessert]) == [:ice, :cream, :with, :fudge, :topping, :for, :dessert]" do
     assert insertR(:topping, :fudge, [:ice, :cream, :with, :fudge, :for, :dessert]) ==
              [:ice, :cream, :with, :fudge, :topping, :for, :dessert]
+  end
+
+  test "insertL( :foo, :bar, [ ]) == []" do
+    assert insertL(:foo, :bar, []) == []
+  end
+
+  test "insertL( :foo, :bar, [:bar]) == [:foo, :bar]" do
+    assert insertL(:foo, :bar, [:bar]) == [:foo, :bar]
+  end
+
+  test "insertL( :foo, :bar, [:bar, :quux]) == [:foo, :bar, :quux]" do
+    assert insertL(:foo, :bar, [:bar, :quux]) == [:foo, :bar, :quux]
   end
 end
