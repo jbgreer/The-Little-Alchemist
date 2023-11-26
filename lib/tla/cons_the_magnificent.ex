@@ -31,8 +31,8 @@ defmodule TLA.ConsTheMagnificent do
   def insertR(new, old, lat) do
     case lat do
       [] -> []
-      [ h | t ] when h == old -> cons(h, cons(new, t))
-      [ h | t ] -> cons(h, insertR(new, old, t))
+      [h | t] when h == old -> cons(h, cons(new, t))
+      [h | t] -> cons(h, insertR(new, old, t))
     end
   end
 end

@@ -37,20 +37,19 @@ defmodule TLA.ConsTheMagnificentTest do
   end
 
   test "insertR( :foo, :bar, [ ]) == []" do
-    assert insertR( :foo, :bar, []) == []
+    assert insertR(:foo, :bar, []) == []
   end
 
   test "insertR( :foo, :bar, [:bar]) == [:bar, :foo]" do
-    assert insertR( :foo, :bar, [:bar]) == [:bar, :foo]
+    assert insertR(:foo, :bar, [:bar]) == [:bar, :foo]
   end
 
   test "insertR( :foo, :bar, [:bar, :quux]) == [:bar, :foo, :quux]" do
-    assert insertR( :foo, :bar, [:bar, :quux]) == [:bar, :foo, :quux]
+    assert insertR(:foo, :bar, [:bar, :quux]) == [:bar, :foo, :quux]
   end
 
   test "insertR( :topping, :fudge, [ :ice, :cream, :with, :fudge, :for, :dessert]) == [:ice, :cream, :with, :fudge, :topping, :for, :dessert]" do
-    assert insertR( :topping, :fudge, [ :ice, :cream, :with, :fudge, :for, :dessert]) ==
-      [:ice, :cream, :with, :fudge, :topping, :for, :dessert]
+    assert insertR(:topping, :fudge, [:ice, :cream, :with, :fudge, :for, :dessert]) ==
+             [:ice, :cream, :with, :fudge, :topping, :for, :dessert]
   end
-
 end
