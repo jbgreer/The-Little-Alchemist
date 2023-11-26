@@ -1,8 +1,8 @@
-# TheLittleAlchemist
+# The Little Alchemist
 
 A little schemer schemes; a little alchemist creates elixirs.
 
-The Little Schemer exercises in Elixir.
+The [Little Schemer, 4th Edition](https://mitpress.mit.edu/9780262560993/the-little-schemer/) exercises in Elixir.
 
 This isn't complete, but I'm walking through some of the questions and attempting to create similar solutions.
 

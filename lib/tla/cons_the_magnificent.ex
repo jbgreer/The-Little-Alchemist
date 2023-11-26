@@ -8,4 +8,11 @@ defmodule TLA.ConsTheMagnificent do
       [h | l] -> cons(h, rember(a, l))
     end
   end
+
+  def firsts(l) do
+    case l do
+      [] -> []
+      [h | l] -> cons(hd(h), firsts(l))
+    end
+  end
 end
