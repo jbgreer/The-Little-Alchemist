@@ -42,7 +42,7 @@ defmodule TLA.ConsTheMagnificent do
   def insertL(new, old, lat) do
     case lat do
       [] -> []
-      [^old | t] -> cons(new, lat)
+      [^old | _] -> cons(new, lat)
       [h | t] -> cons(h, insertL(new, old, t))
     end
   end
