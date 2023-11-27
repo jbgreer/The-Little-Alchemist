@@ -69,4 +69,15 @@ defmodule TLA.ConsTheMagnificent do
       [h | t] -> cons(h, subst2(new, o1, o2, t))
     end
   end
+
+  @doc """
+  Given a list of atoms 'lat', remove every instance of atom 'a'
+  """
+  def multirember(a, lat) do
+    case lat do
+      [] -> []
+      [^a | t] -> multirember(a, t)
+      [h | t] -> cons(h, multirember(a, t))
+    end
+  end
 end
