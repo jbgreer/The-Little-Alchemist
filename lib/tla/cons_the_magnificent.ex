@@ -46,4 +46,16 @@ defmodule TLA.ConsTheMagnificent do
       [h | t] -> cons(h, insertL(new, old, t))
     end
   end
+
+  @doc """
+  Given a list of atoms 'lat', replace the first instance of atom 'old' with atom 'new'
+  """
+  def subst(new, old, lat) do
+    case lat do
+      [] -> []
+      [^old | t] -> cons(new, t)
+      [h | t] -> cons(h, subst(new, old, t))
+    end
+  end
+
 end
