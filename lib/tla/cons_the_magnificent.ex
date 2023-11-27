@@ -58,4 +58,15 @@ defmodule TLA.ConsTheMagnificent do
     end
   end
 
+  @doc """
+  Given a list of atoms 'lat', replace the first instance of atom 'o1' or 'o2' with atom 'new'
+  """
+  def subst2(new, o1, o2, lat) do
+    case lat do
+      [] -> []
+      [^o1 | t] -> cons(new, t)
+      [^o2 | t] -> cons(new, t)
+      [h | t] -> cons(h, subst2(new, o1, o2, t))
+    end
+  end
 end
