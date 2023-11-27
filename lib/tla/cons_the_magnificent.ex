@@ -10,7 +10,7 @@ defmodule TLA.ConsTheMagnificent do
   def rember(a, lat) do
     case lat do
       [] -> []
-      [h | l] when h == a -> l
+      [^a | l] -> l
       [h | l] -> cons(h, rember(a, l))
     end
   end
@@ -31,7 +31,7 @@ defmodule TLA.ConsTheMagnificent do
   def insertR(new, old, lat) do
     case lat do
       [] -> []
-      [h | t] when h == old -> cons(old, cons(new, t))
+      [^old | t] -> cons(old, cons(new, t))
       [h | t] -> cons(h, insertR(new, old, t))
     end
   end
@@ -42,7 +42,7 @@ defmodule TLA.ConsTheMagnificent do
   def insertL(new, old, lat) do
     case lat do
       [] -> []
-      [h | t] when h == old -> cons(new, lat)
+      [^old | t] -> cons(new, lat)
       [h | t] -> cons(h, insertL(new, old, t))
     end
   end
