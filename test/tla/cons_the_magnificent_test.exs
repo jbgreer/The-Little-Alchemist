@@ -2,7 +2,18 @@ defmodule TLA.ConsTheMagnificentTest do
   use ExUnit.Case
 
   import TLA.ConsTheMagnificent,
-    only: [rember: 2, firsts: 1, insertR: 3, insertL: 3, subst: 3, subst2: 4, multirember: 2]
+    only: [
+      rember: 2,
+      firsts: 1,
+      insertR: 3,
+      insertL: 3,
+      subst: 3,
+      subst2: 4,
+      multirember: 2,
+      multiinsertR: 3,
+      multiinsertL: 3,
+      multisubst: 3
+    ]
 
   test "rember(:foo, []) == []" do
     assert rember(:foo, []) == []
@@ -112,5 +123,33 @@ defmodule TLA.ConsTheMagnificentTest do
 
   test "multirember( :foo, [:bar, :foo, :quux, :foo]) == [:bar, :quux]" do
     assert multirember(:foo, [:bar, :foo, :quux, :foo]) == [:bar, :quux]
+  end
+
+  test "multiinsertR( :bar, :foo, [:foo, :quux, :foo]) == [:foo, :bar, :quux, :foo, :bar]" do
+    assert multiinsertR(:bar, :foo, [:foo, :quux, :foo]) == [
+             :foo,
+             :bar,
+             :quux,
+             :foo,
+             :bar
+           ]
+  end
+
+  test "multiinsertL( :bar, :foo, [:foo, :quux, :foo]) == [:bar, :foo, :quux, :bar, :foo]" do
+    assert multiinsertL(:bar, :foo, [:foo, :quux, :foo]) == [
+             :bar,
+             :foo,
+             :quux,
+             :bar,
+             :foo
+           ]
+  end
+
+  test "multisubst( :bar, :foo, [:foo, :quux, :foo]) == [:bar, :quux, :foo]" do
+    assert multisubst(:bar, :foo, [:foo, :quux, :foo]) == [
+             :bar,
+             :quux,
+             :bar
+           ]
   end
 end
