@@ -10,8 +10,8 @@ defmodule TLA.ConsTheMagnificentTest do
       subst: 3,
       subst2: 4,
       multirember: 2,
-      multiinsertR: 3,
-      multiinsertL: 3,
+      multinsertR: 3,
+      multinsertL: 3,
       multisubst: 3
     ]
 
@@ -125,8 +125,8 @@ defmodule TLA.ConsTheMagnificentTest do
     assert multirember(:foo, [:bar, :foo, :quux, :foo]) == [:bar, :quux]
   end
 
-  test "multiinsertR( :bar, :foo, [:foo, :quux, :foo]) == [:foo, :bar, :quux, :foo, :bar]" do
-    assert multiinsertR(:bar, :foo, [:foo, :quux, :foo]) == [
+  test "multinsertR( :bar, :foo, [:foo, :quux, :foo]) == [:foo, :bar, :quux, :foo, :bar]" do
+    assert multinsertR(:bar, :foo, [:foo, :quux, :foo]) == [
              :foo,
              :bar,
              :quux,
@@ -135,8 +135,8 @@ defmodule TLA.ConsTheMagnificentTest do
            ]
   end
 
-  test "multiinsertL( :bar, :foo, [:foo, :quux, :foo]) == [:bar, :foo, :quux, :bar, :foo]" do
-    assert multiinsertL(:bar, :foo, [:foo, :quux, :foo]) == [
+  test "multinsertL( :bar, :foo, [:foo, :quux, :foo]) == [:bar, :foo, :quux, :bar, :foo]" do
+    assert multinsertL(:bar, :foo, [:foo, :quux, :foo]) == [
              :bar,
              :foo,
              :quux,
@@ -151,5 +151,29 @@ defmodule TLA.ConsTheMagnificentTest do
              :quux,
              :bar
            ]
+  end
+
+  test "multinsertR( :foo, :bar, [) == []" do
+    assert multinsertR(:foo, :bar, []) == []
+  end
+
+  test "multinsertR( :foo, :bar, [:bar) == [:bar, :foo]" do
+    assert multinsertR(:foo, :bar, [:bar]) == [:bar, :foo]
+  end
+
+  test "multinsertR( :foo, :bar, [:bar, :quux, :bar) == [:bar, :foo, :quux, :bar, :foo]" do
+    assert multinsertR(:foo, :bar, [:bar, :quux, :bar]) == [:bar, :foo, :quux, :bar, :foo]
+  end
+
+  test "multinsertL( :foo, :bar, [) == []" do
+    assert multinsertL(:foo, :bar, []) == []
+  end
+
+  test "multinsertL( :foo, :bar, [:bar) == [:foo, :bar]" do
+    assert multinsertL(:foo, :bar, [:bar]) == [:foo, :bar]
+  end
+
+  test "multinsertL( :foo, :bar, [:bar, :quux, :bar) == [:foo, :bar, :quux, :foo, :bar]" do
+    assert multinsertL(:foo, :bar, [:bar, :quux, :bar]) == [:foo, :bar, :quux, :foo, :bar]
   end
 end

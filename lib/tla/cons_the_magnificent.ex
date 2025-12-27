@@ -82,24 +82,24 @@ defmodule TLA.ConsTheMagnificent do
   end
 
   @doc """
-  Given a list of atoms 'lat', insert atom 'new' to the right of every atom 'old'
+  Given a list of atoms 'lat', insert atom 'new' to the right of every instance of atom 'old'
   """
-  def multiinsertR(new, old, lat) do
+  def multinsertR(new, old, lat) do
     case lat do
       [] -> []
-      [^old | t] -> cons(old, cons(new, multiinsertR(new, old, t)))
-      [h | t] -> cons(h, multiinsertR(new, old, t))
+      [^old | t] -> cons(old, cons(new, multinsertR(new, old, t)))
+      [h | t] -> cons(h, multinsertR(new, old, t))
     end
   end
 
   @doc """
   Given a list of atoms 'lat', insert atom 'new' to the left of every atom 'old'
   """
-  def multiinsertL(new, old, lat) do
+  def multinsertL(new, old, lat) do
     case lat do
       [] -> []
-      [^old | t] -> cons(new, cons(old, multiinsertL(new, old, t)))
-      [h | t] -> cons(h, multiinsertL(new, old, t))
+      [^old | t] -> cons(new, cons(old, multinsertL(new, old, t)))
+      [h | t] -> cons(h, multinsertL(new, old, t))
     end
   end
 
@@ -113,4 +113,5 @@ defmodule TLA.ConsTheMagnificent do
       [h | t] -> cons(h, multisubst(new, old, t))
     end
   end
+
 end

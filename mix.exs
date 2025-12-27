@@ -16,11 +16,16 @@ defmodule TheLittleAlchemist.MixProject do
         extras: ["README.md"]
       ],
       test_coverage: [tool: Excoveralls, export: "cov"],
-      preferred_cli_env: [
-        coveralls: :test,
-        "coveralls.details": :test,
-        "coveralls.post": :test,
-        "coveralls.html": :test
+    ]
+  end
+
+  def cli do
+      [
+        preferred_cli_env: [
+          coveralls: :test,
+          "coveralls.details": :test,
+          "coveralls.post": :test,
+          "coveralls.html": :test
       ]
     ]
   end
