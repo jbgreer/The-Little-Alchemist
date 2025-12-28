@@ -5,7 +5,7 @@ defmodule TheLittleAlchemist do
   @doc """
   Returns :world atom
   """
-  def hello() do
+  def hello do
     :world
   end
 end
