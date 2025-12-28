@@ -16,18 +16,6 @@ jobs:
             otp: '28.2'
             coverage: true
             lint: true
-          - elixir: '1.19.4'
-            otp: '27.3'
-          - elixir: '1.19.4'
-            otp: '26.2'
-          - elixir: '1.18.4'
-            otp: '25.3'
-          - elixir: '1.17.3'
-            otp: '25.3'
-          - elixir: '1.16.3'
-            otp: '24.3'
-          - elixir: '1.15.8'
-            otp: '24.3'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
