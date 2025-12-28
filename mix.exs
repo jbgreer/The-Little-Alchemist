@@ -15,7 +15,7 @@ defmodule TheLittleAlchemist.MixProject do
         main: "TheLittleAlchemist",
         extras: ["README.md"]
       ],
-      test_coverage: [tool: Excoveralls, export: "cov"]
+      test_coverage: [tool: ExCoveralls, export: "cov"]
     ]
   end
 
