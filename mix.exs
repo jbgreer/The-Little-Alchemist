@@ -45,7 +45,7 @@ defmodule TheLittleAlchemist.MixProject do
       {:excoveralls, "~> 0.18", only: [:dev, :test], runtime: false},
       {:ex_doc, "~> 0.30", only: [:dev], runtime: false},
       {:doctor, "~> 0.21.0", only: [:dev], runtime: false},
-      {:git_hub_actions, "~> 0.1", only: :dev}
+      {:git_hub_actions, "~> 0.1", only: :test}
     ]
   end
 end
