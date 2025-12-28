@@ -28,22 +28,22 @@ defmodule TLA.ConsTheMagnificent do
   @doc """
   Given a list of atoms 'lat', insert an atom 'new' to the right of the first instance of atom 'old'
   """
-  def insert_R(new, old, lat) do
+  def insert_r(new, old, lat) do
     case lat do
       [] -> []
       [^old | t] -> cons(old, cons(new, t))
-      [h | t] -> cons(h, insert_R(new, old, t))
+      [h | t] -> cons(h, insert_r(new, old, t))
     end
   end
 
   @doc """
   Given a list of atoms 'lat', insert an atom 'new' to the left of the first instance of atom 'old'
   """
-  def insert_L(new, old, lat) do
+  def insert_l(new, old, lat) do
     case lat do
       [] -> []
       [^old | _] -> cons(new, lat)
-      [h | t] -> cons(h, insert_L(new, old, t))
+      [h | t] -> cons(h, insert_l(new, old, t))
     end
   end
 
@@ -84,22 +84,22 @@ defmodule TLA.ConsTheMagnificent do
   @doc """
   Given a list of atoms 'lat', insert atom 'new' to the right of every instance of atom 'old'
   """
-  def multi_insert_R(new, old, lat) do
+  def multi_insert_r(new, old, lat) do
     case lat do
       [] -> []
-      [^old | t] -> cons(old, cons(new, multi_insert_R(new, old, t)))
-      [h | t] -> cons(h, multi_insert_R(new, old, t))
+      [^old | t] -> cons(old, cons(new, multi_insert_r(new, old, t)))
+      [h | t] -> cons(h, multi_insert_r(new, old, t))
     end
   end
 
   @doc """
   Given a list of atoms 'lat', insert atom 'new' to the left of every atom 'old'
   """
-  def multi_insert_L(new, old, lat) do
+  def multi_insert_l(new, old, lat) do
     case lat do
       [] -> []
-      [^old | t] -> cons(new, cons(old, multi_insert_L(new, old, t)))
-      [h | t] -> cons(h, multi_insert_L(new, old, t))
+      [^old | t] -> cons(new, cons(old, multi_insert_l(new, old, t)))
+      [h | t] -> cons(h, multi_insert_l(new, old, t))
     end
   end
 
