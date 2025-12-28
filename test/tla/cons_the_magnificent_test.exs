@@ -5,14 +5,14 @@ defmodule TLA.ConsTheMagnificentTest do
     only: [
       rember: 2,
       firsts: 1,
-      insertR: 3,
-      insertL: 3,
+      insert_R: 3,
+      insert_L: 3,
       subst: 3,
       subst2: 4,
-      multirember: 2,
-      multinsertR: 3,
-      multinsertL: 3,
-      multisubst: 3
+      multi_rember: 2,
+      multi_insert_R: 3,
+      multi_insert_L: 3,
+      multi_subst: 3
     ]
 
   test "rember(:foo, []) == []" do
@@ -48,33 +48,33 @@ defmodule TLA.ConsTheMagnificentTest do
     assert firsts([[[:apple], :peach], [:plum, :pear]]) == [[:apple], :plum]
   end
 
-  test "insertR( :foo, :bar, [ ]) == []" do
-    assert insertR(:foo, :bar, []) == []
+  test "insert_R( :foo, :bar, [ ]) == []" do
+    assert insert_R(:foo, :bar, []) == []
   end
 
-  test "insertR( :foo, :bar, [:bar]) == [:bar, :foo]" do
-    assert insertR(:foo, :bar, [:bar]) == [:bar, :foo]
+  test "insert_R( :foo, :bar, [:bar]) == [:bar, :foo]" do
+    assert insert_R(:foo, :bar, [:bar]) == [:bar, :foo]
   end
 
-  test "insertR( :foo, :bar, [:bar, :quux]) == [:bar, :foo, :quux]" do
-    assert insertR(:foo, :bar, [:bar, :quux]) == [:bar, :foo, :quux]
+  test "insert_R( :foo, :bar, [:bar, :quux]) == [:bar, :foo, :quux]" do
+    assert insert_R(:foo, :bar, [:bar, :quux]) == [:bar, :foo, :quux]
   end
 
-  test "insertR( :topping, :fudge, [ :ice, :cream, :with, :fudge, :for, :dessert]) == [:ice, :cream, :with, :fudge, :topping, :for, :dessert]" do
-    assert insertR(:topping, :fudge, [:ice, :cream, :with, :fudge, :for, :dessert]) ==
+  test "insert_R( :topping, :fudge, [ :ice, :cream, :with, :fudge, :for, :dessert]) == [:ice, :cream, :with, :fudge, :topping, :for, :dessert]" do
+    assert insert_R(:topping, :fudge, [:ice, :cream, :with, :fudge, :for, :dessert]) ==
              [:ice, :cream, :with, :fudge, :topping, :for, :dessert]
   end
 
-  test "insertL( :foo, :bar, [ ]) == []" do
-    assert insertL(:foo, :bar, []) == []
+  test "insert_L( :foo, :bar, [ ]) == []" do
+    assert insert_L(:foo, :bar, []) == []
   end
 
-  test "insertL( :foo, :bar, [:bar]) == [:foo, :bar]" do
-    assert insertL(:foo, :bar, [:bar]) == [:foo, :bar]
+  test "insert_L( :foo, :bar, [:bar]) == [:foo, :bar]" do
+    assert insert_L(:foo, :bar, [:bar]) == [:foo, :bar]
   end
 
-  test "insertL( :foo, :bar, [:bar, :quux]) == [:foo, :bar, :quux]" do
-    assert insertL(:foo, :bar, [:bar, :quux]) == [:foo, :bar, :quux]
+  test "insert_L( :foo, :bar, [:bar, :quux]) == [:foo, :bar, :quux]" do
+    assert insert_L(:foo, :bar, [:bar, :quux]) == [:foo, :bar, :quux]
   end
 
   test "susbt( :foo, :bar, []) == []" do
@@ -101,32 +101,32 @@ defmodule TLA.ConsTheMagnificentTest do
     assert subst2(:foo, :bar, :quux, [:quux]) == [:foo]
   end
 
-  test "multirember( :foo, []) == []" do
-    assert multirember(:foo, []) == []
+  test "multi_rember( :foo, []) == []" do
+    assert multi_rember(:foo, []) == []
   end
 
-  test "multirember( :foo, [:foo]) == []" do
-    assert multirember(:foo, [:foo]) == []
+  test "multi_rember( :foo, [:foo]) == []" do
+    assert multi_rember(:foo, [:foo]) == []
   end
 
-  test "multirember( :foo, [:bar]) == [:bar]" do
-    assert multirember(:foo, [:bar]) == [:bar]
+  test "multi_rember( :foo, [:bar]) == [:bar]" do
+    assert multi_rember(:foo, [:bar]) == [:bar]
   end
 
-  test "multirember( :foo, [:foo, :bar]) == [:bar]" do
-    assert multirember(:foo, [:foo, :bar]) == [:bar]
+  test "multi_rember( :foo, [:foo, :bar]) == [:bar]" do
+    assert multi_rember(:foo, [:foo, :bar]) == [:bar]
   end
 
-  test "multirember( :foo, [:bar, :foo]) == [:bar]" do
-    assert multirember(:foo, [:bar, :foo]) == [:bar]
+  test "multi_rember( :foo, [:bar, :foo]) == [:bar]" do
+    assert multi_rember(:foo, [:bar, :foo]) == [:bar]
   end
 
-  test "multirember( :foo, [:bar, :foo, :quux, :foo]) == [:bar, :quux]" do
-    assert multirember(:foo, [:bar, :foo, :quux, :foo]) == [:bar, :quux]
+  test "multi_rember( :foo, [:bar, :foo, :quux, :foo]) == [:bar, :quux]" do
+    assert multi_rember(:foo, [:bar, :foo, :quux, :foo]) == [:bar, :quux]
   end
 
-  test "multinsertR( :bar, :foo, [:foo, :quux, :foo]) == [:foo, :bar, :quux, :foo, :bar]" do
-    assert multinsertR(:bar, :foo, [:foo, :quux, :foo]) == [
+  test "multi_insert_R( :bar, :foo, [:foo, :quux, :foo]) == [:foo, :bar, :quux, :foo, :bar]" do
+    assert multi_insert_R(:bar, :foo, [:foo, :quux, :foo]) == [
              :foo,
              :bar,
              :quux,
@@ -135,8 +135,8 @@ defmodule TLA.ConsTheMagnificentTest do
            ]
   end
 
-  test "multinsertL( :bar, :foo, [:foo, :quux, :foo]) == [:bar, :foo, :quux, :bar, :foo]" do
-    assert multinsertL(:bar, :foo, [:foo, :quux, :foo]) == [
+  test "multi_insert_L( :bar, :foo, [:foo, :quux, :foo]) == [:bar, :foo, :quux, :bar, :foo]" do
+    assert multi_insert_L(:bar, :foo, [:foo, :quux, :foo]) == [
              :bar,
              :foo,
              :quux,
@@ -145,35 +145,35 @@ defmodule TLA.ConsTheMagnificentTest do
            ]
   end
 
-  test "multisubst( :bar, :foo, [:foo, :quux, :foo]) == [:bar, :quux, :foo]" do
-    assert multisubst(:bar, :foo, [:foo, :quux, :foo]) == [
+  test "multi_subst( :bar, :foo, [:foo, :quux, :foo]) == [:bar, :quux, :foo]" do
+    assert multi_subst(:bar, :foo, [:foo, :quux, :foo]) == [
              :bar,
              :quux,
              :bar
            ]
   end
 
-  test "multinsertR( :foo, :bar, [) == []" do
-    assert multinsertR(:foo, :bar, []) == []
+  test "multi_insert_R( :foo, :bar, [) == []" do
+    assert multi_insert_R(:foo, :bar, []) == []
   end
 
-  test "multinsertR( :foo, :bar, [:bar) == [:bar, :foo]" do
-    assert multinsertR(:foo, :bar, [:bar]) == [:bar, :foo]
+  test "multi_insert_R( :foo, :bar, [:bar) == [:bar, :foo]" do
+    assert multi_insert_R(:foo, :bar, [:bar]) == [:bar, :foo]
   end
 
-  test "multinsertR( :foo, :bar, [:bar, :quux, :bar) == [:bar, :foo, :quux, :bar, :foo]" do
-    assert multinsertR(:foo, :bar, [:bar, :quux, :bar]) == [:bar, :foo, :quux, :bar, :foo]
+  test "multi_insert_R( :foo, :bar, [:bar, :quux, :bar) == [:bar, :foo, :quux, :bar, :foo]" do
+    assert multi_insert_R(:foo, :bar, [:bar, :quux, :bar]) == [:bar, :foo, :quux, :bar, :foo]
   end
 
-  test "multinsertL( :foo, :bar, [) == []" do
-    assert multinsertL(:foo, :bar, []) == []
+  test "multi_insert_L( :foo, :bar, [) == []" do
+    assert multi_insert_L(:foo, :bar, []) == []
   end
 
-  test "multinsertL( :foo, :bar, [:bar) == [:foo, :bar]" do
-    assert multinsertL(:foo, :bar, [:bar]) == [:foo, :bar]
+  test "multi_insert_L( :foo, :bar, [:bar) == [:foo, :bar]" do
+    assert multi_insert_L(:foo, :bar, [:bar]) == [:foo, :bar]
   end
 
-  test "multinsertL( :foo, :bar, [:bar, :quux, :bar) == [:foo, :bar, :quux, :foo, :bar]" do
-    assert multinsertL(:foo, :bar, [:bar, :quux, :bar]) == [:foo, :bar, :quux, :foo, :bar]
+  test "multi_insert_L( :foo, :bar, [:bar, :quux, :bar) == [:foo, :bar, :quux, :foo, :bar]" do
+    assert multi_insert_L(:foo, :bar, [:bar, :quux, :bar]) == [:foo, :bar, :quux, :foo, :bar]
   end
 end

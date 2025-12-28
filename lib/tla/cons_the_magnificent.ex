@@ -28,22 +28,22 @@ defmodule TLA.ConsTheMagnificent do
   @doc """
   Given a list of atoms 'lat', insert an atom 'new' to the right of the first instance of atom 'old'
   """
-  def insertR(new, old, lat) do
+  def insert_R(new, old, lat) do
     case lat do
       [] -> []
       [^old | t] -> cons(old, cons(new, t))
-      [h | t] -> cons(h, insertR(new, old, t))
+      [h | t] -> cons(h, insert_R(new, old, t))
     end
   end
 
   @doc """
   Given a list of atoms 'lat', insert an atom 'new' to the left of the first instance of atom 'old'
   """
-  def insertL(new, old, lat) do
+  def insert_L(new, old, lat) do
     case lat do
       [] -> []
       [^old | _] -> cons(new, lat)
-      [h | t] -> cons(h, insertL(new, old, t))
+      [h | t] -> cons(h, insert_L(new, old, t))
     end
   end
 
@@ -73,44 +73,44 @@ defmodule TLA.ConsTheMagnificent do
   @doc """
   Given a list of atoms 'lat', remove every instance of atom 'a'
   """
-  def multirember(a, lat) do
+  def multi_rember(a, lat) do
     case lat do
       [] -> []
-      [^a | t] -> multirember(a, t)
-      [h | t] -> cons(h, multirember(a, t))
+      [^a | t] -> multi_rember(a, t)
+      [h | t] -> cons(h, multi_rember(a, t))
     end
   end
 
   @doc """
   Given a list of atoms 'lat', insert atom 'new' to the right of every instance of atom 'old'
   """
-  def multinsertR(new, old, lat) do
+  def multi_insert_R(new, old, lat) do
     case lat do
       [] -> []
-      [^old | t] -> cons(old, cons(new, multinsertR(new, old, t)))
-      [h | t] -> cons(h, multinsertR(new, old, t))
+      [^old | t] -> cons(old, cons(new, multi_insert_R(new, old, t)))
+      [h | t] -> cons(h, multi_insert_R(new, old, t))
     end
   end
 
   @doc """
   Given a list of atoms 'lat', insert atom 'new' to the left of every atom 'old'
   """
-  def multinsertL(new, old, lat) do
+  def multi_insert_L(new, old, lat) do
     case lat do
       [] -> []
-      [^old | t] -> cons(new, cons(old, multinsertL(new, old, t)))
-      [h | t] -> cons(h, multinsertL(new, old, t))
+      [^old | t] -> cons(new, cons(old, multi_insert_L(new, old, t)))
+      [h | t] -> cons(h, multi_insert_L(new, old, t))
     end
   end
 
   @doc """
   Given a list of atoms 'lat', substitute atom 'new' for exery atom 'old'
   """
-  def multisubst(new, old, lat) do
+  def multi_subst(new, old, lat) do
     case lat do
       [] -> []
-      [^old | t] -> cons(new, multisubst(new, old, t))
-      [h | t] -> cons(h, multisubst(new, old, t))
+      [^old | t] -> cons(new, multi_subst(new, old, t))
+      [h | t] -> cons(h, multi_subst(new, old, t))
     end
   end
 end
