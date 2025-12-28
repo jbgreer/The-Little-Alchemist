@@ -113,5 +113,4 @@ defmodule TLA.ConsTheMagnificent do
       [h | t] -> cons(h, multisubst(new, old, t))
     end
   end
-
 end
